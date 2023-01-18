@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Tabela</title>
+</head>
+
+<body>
+
+    <table border='1'>
+        
+            <tr style="background-color: rgb(184, 184, 184);">
+                <% header.forEach(col=> { %>
+                    <th style="padding:10px;"> <%= col %> </th>
+                <% }) %>
+            </tr>
+
+            <% rows.forEach(row => { %>
+                <tr>
+                    <% row.forEach(item => { %>
+                       <td style="padding:10px;"> <%= item %> </td>
+                    <% }) %>
+                </tr>
+            <% }) %>
+            
+    </table>
+
+</body>
+
+</html>

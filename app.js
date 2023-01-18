@@ -24,5 +24,6 @@ async function PDFCompile(file) {
     PdfWrite.PDFWrite(`${Date.now()}.pdf`, html);
 }
 
+
 HTMLCompile("./files/postos.csv");
 PDFCompile("./files/postos.csv");

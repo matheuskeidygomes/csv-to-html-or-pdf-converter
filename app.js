@@ -9,7 +9,7 @@ let Read = new Reader();
 let Write = new Writer();
 
 async function HTMLCompile(file) {
-    let dados = await Read.Read(file);
+    let dados = Read.Read(file);
     let process = Processor.Process(dados);
     let users = new Table(process);
     let html = await HtmlParser.Parse(users);

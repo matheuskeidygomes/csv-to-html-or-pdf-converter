@@ -4,6 +4,7 @@ class Writer {
     
     constructor() {
         this.writer = fs.promises.writeFile;
+        // this.writer = fs.writeFileSync; // Synchronous Option
     }
 
     async Write(filename, data) {

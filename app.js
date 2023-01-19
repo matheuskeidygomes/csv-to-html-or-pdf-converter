@@ -8,22 +8,14 @@ import PdfWrite from './classes/PdfWriter.js';
 let Read = new Reader();
 let Write = new Writer();
 
-async function HTMLCompile(file) {
-    let dados = Read.Read(file);
-    let process = Processor.Process(dados);
-    let users = new Table(process);
-    let html = await HtmlParser.Parse(users);
-    Write.Write(`${Date.now()}.html`, html);
-}
-
-async function PDFCompile(file) {
+async function Compile(file, type) {
     let dados = await Read.Read(file);
     let process = Processor.Process(dados);
     let users = new Table(process);
     let html = await HtmlParser.Parse(users);
-    PdfWrite.PDFWrite(`${Date.now()}.pdf`, html);
+    if(type === "pdf") PdfWrite.PDFWrite(`${Date.now()}.pdf`, html);
+    if(type === "html") Write.Write(`${Date.now()}.html`, html);
 }
 
-
-HTMLCompile("./files/postos.csv");
-PDFCompile("./files/postos.csv");
+Compile("./files/postos.csv", "html");
+Compile("./files/postos.csv", "pdf");
